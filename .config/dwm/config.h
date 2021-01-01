@@ -111,7 +111,6 @@ static const char *pavucontrol[] = { "pavucontrol", NULL };
 static const char *snip[] = { "flameshot", "gui", NULL };
 static const char *spotify[] = { "spotify", NULL };
 static const char *mail[] = { "tutanota-desktop", NULL };
-static const char *github[] = { "brave www.github.com", NULL };
 
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
@@ -135,7 +134,6 @@ static Key keys[] = {
     { MODKEY|ShiftMask,			XK_p,		spawn,          {.v = pavucontrol } },
 	{ MODKEY|ShiftMask,			XK_s,		spawn,          {.v = spotify } },
 	{ MODKEY|ShiftMask,			XK_n,		spawn,          {.v = mail } },
-	{ MODKEY|ShiftMask,			XK_g,		spawn,          {.v = github } },
 	{ MODKEY,			XK_f,		togglefullscr,	{0} },
 	{ MODKEY|ShiftMask,		XK_f,		setlayout,	{.v = &layouts[8]} },
 	{ MODKEY,			XK_g,		shiftview,	{ .i = -1 } },
