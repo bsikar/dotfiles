@@ -19,6 +19,7 @@ set expandtab
 nnoremap SP :set paste<CR>
 nnoremap tt :term<CR>
 nnoremap CT :!cc "%" -o program && ./program && rm program<CR>
+nnoremap RT :!cargo run<CR>
 nnoremap j gj
 nnoremap k gk
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
