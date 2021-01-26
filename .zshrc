@@ -13,3 +13,5 @@ alias l="ls -lah"
 alias cl="clear;ls"
 alias pf="pfetch"
 alias cpy="xclip -selection clipboard"
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
