@@ -27,10 +27,10 @@ augroup COMPILER
   let s:java_args = ' "%" && java "%:r" && rm "%:r".class'
   autocmd FileType cpp,cc let &makeprg = 'clang++'.s:args
   autocmd FileType c let &makeprg = 'clang'.s:args
-  autocmd FileType rs let &makeprg = 'rustc'.s:args
-  autocmd FileType js let &makeprg = 'node "%"'
+  autocmd FileType rust let &makeprg = 'rustc'.s:args
+  autocmd FileType javascript let &makeprg = 'node "%"'
   autocmd FileType java let &makeprg = 'javac'.s:java_args
-  autocmd FileType cpp,cc,c,rs,js,java nnoremap CT <cmd>make<cr>
+  autocmd FileType cpp,cc,c,rust,javascript,java nnoremap CT <cmd>make<cr>
 augroup END
 
 " set tab width and stuff to only 2 on webdev files
