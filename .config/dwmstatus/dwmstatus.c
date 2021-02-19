@@ -10,7 +10,6 @@ static Display *dpy;
 
 char *smprintf(char *, ...);
 void setstatus(char *);
-char *readfile(char *, char *);
 float getram(void);
 float getswap(void);
 float getcpu(void);
@@ -60,27 +59,6 @@ char *smprintf(char *fmt, ...) {
 void setstatus(char *str) {
     XStoreName(dpy, DefaultRootWindow(dpy), str);
     XSync(dpy, False);
-}
-
-char *readfile(char *base, char *file) {
-    char *path, line[513];
-    FILE *fd;
-
-    memset(line, 0, sizeof(line));
-
-    path = smprintf("%s/%s", base, file);
-    fd = fopen(path, "r");
-    free(path);
-    if (fd == NULL) {
-        return NULL;
-    }
-
-    if (fgets(line, sizeof(line)-1, fd) == NULL) {
-        return NULL;
-    }
-    fclose(fd);
-
-    return smprintf("%s", line);  
 }
 
 float getram(void) {
