@@ -150,9 +150,17 @@ char *dateandtime(void) {
 
     char *time;
     if (tm.tm_hour > 12) {
-        time = smprintf("%d:%d PM", tm.tm_hour - 12, tm.tm_min);
+        if (tm.tm_min > 9) {
+            time = smprintf("%d:%d PM", tm.tm_hour - 12, tm.tm_min);
+        } else {
+            time = smprintf("%d:0%d PM", tm.tm_hour - 12, tm.tm_min);
+        }
     } else {
-        time = smprintf("%d:%d AM", tm.tm_hour, tm.tm_min);
+        if (tm.tm_min > 9) {
+            time = smprintf("%d:%d AM", (tm.tm_hour == 0) ? 12 : tm.tm_hour,  tm.tm_min);
+        } else {
+            time = smprintf("%d:0%d AM", (tm.tm_hour == 0) ? 12 : tm.tm_hour,  tm.tm_min);
+        }
     }
 
 	return smprintf("%s, %s %d - %s ", weekdays[tm.tm_wday], months[tm.tm_mon], tm.tm_mday, time);
