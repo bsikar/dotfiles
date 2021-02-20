@@ -16,7 +16,7 @@ set tabstop=4               " tab stop
 set expandtab               " use spaces as tabs
 
 " press things to do things
-nnoremap SP :set paste<cr>
+nnoremap SP :set invpaste<cr>
 nnoremap tt :term<cr>
 nnoremap ct :!cargo run<cr>
 
