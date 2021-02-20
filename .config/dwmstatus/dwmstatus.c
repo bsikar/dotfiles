@@ -96,7 +96,7 @@ float getswap(void)
             sscanf(line, "%*s %d", &total);
         }
 
-        if(strstr(line, "SwapFree")){
+        if (strstr(line, "SwapFree")) {
             sscanf(line, "%*s %d", &free);
         }
     }
