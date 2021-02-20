@@ -121,10 +121,10 @@ float getcpu(void) {
 }
 
 char *dateandtime(void) {
-	const char weekdays[7][10] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-	const char months[12][10] = {"January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"};
-	time_t t = time(NULL);
- 	struct tm tm = *localtime(&t);
+    const char weekdays[7][10] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    const char months[12][10] = {"January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"};
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
 
     char *time;
     if (tm.tm_hour > 12) {
