@@ -90,7 +90,7 @@ augroup END
 augroup INDENT
     autocmd!
     autocmd FileType html,css,javascript call Spaces(2)
-    autocmd FileType c,cc,cpp,rust,python,haskell call Spaces(4)
+    autocmd FileType c,cc,cpp,rust,java,python,haskell call Spaces(4)
 augroup END
 
 augroup MAKE_FILEFORMAT_UNIX
