@@ -13,30 +13,64 @@ set hlsearch                " show all search matches
 set mouse=a                 " allow the mouse to click
 set shiftwidth=4            " shift width
 set tabstop=4               " tab stop
+set softtabstop=4           " sets the number of columns for a tab
+set autoindent              " auto indent
+set smarttab                " insert spaces or tabs to go to the next indent 
 set expandtab               " use spaces as tabs
+set fileformat=unix         " use unix files not dos
 
 " press things to do things
 nnoremap SP :set invpaste<cr>
 nnoremap tt :term<cr>
 nnoremap ct :!cargo run<cr>
 
+function! Spaces(size)
+    " update the current spaces to tabs before changing the size of a tab
+    let &l:shiftwidth=&shiftwidth
+    let &l:tabstop=&tabstop
+    let &l:softtabstop=&softtabstop
+    setlocal noexpandtab
+    retab!
+
+    " change tabs to spaces
+    let &l:shiftwidth=a:size
+    let &l:tabstop=a:size
+    let &l:softtabstop=a:size
+    setlocal smarttab
+    setlocal expandtab
+    retab
+endfunction
+
+" make file unix
+function! Unixify()
+    if &l:fileformat != 'unix'
+        setlocal fileformat=unix
+        echo "making the file's format unix"
+    endif
+endfunction
+
 " code that i copied from `salt rock lamp#0679` on discord
 augroup COMPILER
-  autocmd!
-  let s:args = ' "%" -o "%:r" && ./"%:r" && rm "%:r"'
-  let s:java_args = ' "%" && java "%:r" && rm "%:r".class'
-  let s:hs_args = ' "%" -o "%:r" && ./"%:r" && rm "%:r" "%:r".o "%:r".hi'
-  autocmd FileType cpp,cc let &makeprg = 'clang++'.s:args
-  autocmd FileType c let &makeprg = 'clang'.s:args
-  autocmd FileType rust let &makeprg = 'rustc'.s:args
-  autocmd FileType javascript let &makeprg = 'node "%"'
-  autocmd FileType java let &makeprg = 'javac'.s:java_args
-  autocmd FileType python let &makeprg = 'python3 "%"'
-  autocmd FileType haskell let &makeprg = 'ghc'.s:hs_args
-  autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell nnoremap CT <cmd>make<cr>
+    autocmd!
+    let s:args = ' "%" -o "%:r" && ./"%:r" && rm "%:r"'
+    let s:java_args = ' "%" && java "%:r" && rm "%:r".class'
+    let s:hs_args = ' "%" -o "%:r" && ./"%:r" && rm "%:r" "%:r".o "%:r".hi'
+    autocmd FileType cpp,cc let &makeprg = 'clang++'.s:args
+    autocmd FileType c let &makeprg = 'clang'.s:args
+    autocmd FileType rust let &makeprg = 'rustc'.s:args
+    autocmd FileType javascript let &makeprg = 'node "%"'
+    autocmd FileType java let &makeprg = 'javac'.s:java_args
+    autocmd FileType python let &makeprg = 'python3 "%"'
+    autocmd FileType haskell let &makeprg = 'ghc'.s:hs_args
+    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell nnoremap CT <cmd>make<cr>
 augroup END
 
-" set tab width and stuff to only 2 on webdev files
-autocmd FileType html setlocal tabstop=2 shiftwidth=2 expandtab
-autocmd FileType css setlocal tabstop=2 shiftwidth=2 expandtab
-autocmd FileType js setlocal tabstop=2 shiftwidth=2 expandtab
+augroup INDENT
+    autocmd!
+    autocmd FileType html,css,javascript call Spaces(2)
+augroup END
+
+augroup MAKE_FILEFORMAT_UNIX
+    autocmd!
+    autocmd VimEnter * call Unixify()
+augroup END
