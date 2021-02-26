@@ -85,41 +85,27 @@ augroup END
 
 " bar "
 set laststatus=2
-set statusline=
-set statusline+=%1*
-set statusline+=%f
-set statusline+=\ 
-set statusline+=%y
-set statusline+=%=
-set statusline+=%2*
-set statusline+=<
-set statusline+=%{StatuslineMode()}
-set statusline+=>
-set statusline+=\ 
-set statusline+=\ 
-set statusline+=%l
-set statusline+=/
-set statusline+=%L
+set statusline=%1*%f\ %y%=%2*<%{StatuslineMode()}>\ %l/%L
 hi User1 ctermbg=black ctermfg=darkgray guibg=black guifg=darkgray
 hi User2 ctermbg=black ctermfg=darkgray guibg=black guifg=darkgray
 
 function! StatuslineMode()
-  let l:mode=mode()
-  if l:mode==#"n"
-    return "NORMAL"
-  elseif l:mode==?"v"
-    return "VISUAL"
-  elseif l:mode==#"i"
-    return "INSERT"
-  elseif l:mode==#"R"
-    return "REPLACE"
-  elseif l:mode==?"s"
-    return "SELECT"
-  elseif l:mode==#"t"
-    return "TERMINAL"
-  elseif l:mode==#"c"
-    return "COMMAND"
-  elseif l:mode==#"!"
-    return "SHELL"
-  endif
+    let l:mode=mode()
+    if l:mode==#"n"
+        return "NORMAL"
+    elseif l:mode==?"v"
+        return "VISUAL"
+    elseif l:mode==#"i"
+        return "INSERT"
+    elseif l:mode==#"R"
+        return "REPLACE"
+    elseif l:mode==?"s"
+        return "SELECT"
+    elseif l:mode==#"t"
+        return "TERMINAL"
+    elseif l:mode==#"c"
+        return "COMMAND"
+    elseif l:mode==#"!"
+        return "SHELL"
+    endif
 endfunction
