@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')                           " plug stuff
 Plug 'dense-analysis/ale'                                   " code inteligence
 Plug 'rust-analyzer/rust-analyzer'                          " rust inteligence
-Plug 'pissmilk/vim_monochrome'                              " colorscheme
+Plug 'bsikar/vim_monochrome'                                " colorscheme
 call plug#end()                                             " end plug stuff
 
 colorscheme monochrome                                      " colorscheme
