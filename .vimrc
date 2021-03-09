@@ -1,10 +1,12 @@
 call plug#begin('~/.vim/plugged')                           " plug stuff
 Plug 'dense-analysis/ale'                                   " code inteligence
 Plug 'rust-analyzer/rust-analyzer'                          " rust inteligence
-Plug 'bsikar/vim_monochrome'                                " colorscheme
+"Plug 'bsikar/vim_monochrome'                                " colorscheme
+Plug 'lighthaus-theme/vim-lighthaus'                        "coloscheme
 call plug#end()                                             " end plug stuff
 
-colorscheme monochrome                                      " colorscheme
+"colorscheme monochrome                                      " colorscheme
+colorscheme lighthaus                                        " colorscheme
 
 set encoding=utf-8                                          " set the encoding
 set number " relativenumber                                 " show numbers on relatively
