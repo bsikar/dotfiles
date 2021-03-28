@@ -1,5 +1,5 @@
-xrandr --output DP1 --primary --mode 2560x1440 --pos 2560x0 --rotate normal --output DP2 --off --output HDMI1 --mode 2560x1440 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off
+xrandr --output DisplayPort-0 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DisplayPort-1 --off --output DisplayPort-2 --mode 2560x1440 --pos 2560x0 --rotate normal --output DisplayPort-3 --mode 1920x1080 --pos 5120x0 --rotate left
 feh --bg-fill ~/Pictures/Wallpapers/crimson.jpg
-pulseaudio &
 dwmstatus &
+flameshot &
 dwm
