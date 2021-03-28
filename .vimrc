@@ -1,12 +1,12 @@
 call plug#begin('~/.vim/plugged')                           " plug stuff
 Plug 'dense-analysis/ale'                                   " code inteligence
 Plug 'rust-analyzer/rust-analyzer'                          " rust inteligence
-"Plug 'bsikar/vim_monochrome'                                " colorscheme
+Plug 'bsikar/vim_monochrome'                                " colorscheme
 Plug 'lighthaus-theme/vim-lighthaus'                        "coloscheme
 call plug#end()                                             " end plug stuff
 
-"colorscheme monochrome                                      " colorscheme
-colorscheme lighthaus                                        " colorscheme
+colorscheme monochrome                                      " colorscheme
+"colorscheme lighthaus                                        " colorscheme
 
 set encoding=utf-8                                          " set the encoding
 set number " relativenumber                                 " show numbers on relatively
@@ -26,7 +26,6 @@ set ttyfast                                                 " helps with renderi
 set incsearch                                               " cool search thing
 set ignorecase                                              " works with smart case to ignore caps when search is in lowercase
 set smartcase                                               " ^^^
-set showmatch                                               " when searching for a word it shows the closest match
 set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·   " cool dots on the screen when S-Tab is pressed
 
 " press things to do things
@@ -49,7 +48,7 @@ function! Spaces(size)
     let &l:softtabstop=a:size
     setlocal smarttab
     setlocal expandtab
-    retab
+    retab!
 endfunction
 
 function! Unixify()
@@ -71,7 +70,7 @@ augroup COMPILER
     autocmd FileType java let &makeprg = 'javac'.s:java_args
     autocmd FileType python let &makeprg = 'python3 "%"'
     autocmd FileType haskell let &makeprg = 'ghc'.s:hs_args
-    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell nnoremap CT <cmd>make<cr>
+    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell nnoremap CT :make<cr>
 augroup END
 
 augroup INDENT
@@ -88,8 +87,8 @@ augroup END
 " bar "
 set laststatus=2
 set statusline=%1*%f\ %y%=%2*<%{StatuslineMode()}>\ %l/%L
-hi User1 ctermbg=black ctermfg=darkgray guibg=black guifg=darkgray
-hi User2 ctermbg=black ctermfg=darkgray guibg=black guifg=darkgray
+hi User1 ctermfg=lightmagenta
+hi User2 ctermfg=lightmagenta
 
 function! StatuslineMode()
     let l:mode=mode()
