@@ -15,7 +15,7 @@ float getswap(void);
 float getcpu(void);
 char *dateandtime(void);
 
-int main(void) 
+int main(void)
 {
     char *status;
 
@@ -35,7 +35,7 @@ int main(void)
     return 0;
 }
 
-char *smprintf(char *fmt, ...) 
+char *smprintf(char *fmt, ...)
 {
     va_list fmtargs;
     char *ret;
@@ -58,13 +58,13 @@ char *smprintf(char *fmt, ...)
     return ret;
 }
 
-void setstatus(char *str) 
+void setstatus(char *str)
 {
     XStoreName(dpy, DefaultRootWindow(dpy), str);
     XSync(dpy, False);
 }
 
-float getram(void) 
+float getram(void)
 {
     int total, free, buffer, cache;
     FILE *fd = fopen("/proc/meminfo", "r");
@@ -76,11 +76,11 @@ float getram(void)
 
     fscanf(fd, "%*s %d %*s %*s %d %*s %*s %*d %*s %*s %d %*s %*s %d", &total, &free, &buffer, &cache);
     fclose(fd);
-    
+
     return (float)(total - free - buffer - cache) / total * 100.;
 }
 
-float getswap(void) 
+float getswap(void)
 {
     int total = -1, free = -1;
     char line[513];
@@ -106,7 +106,7 @@ float getswap(void)
     return (float)(total-free) / total * 100.;
 }
 
-float getcpu(void) 
+float getcpu(void)
 {
     long int user, nice, system, idle, iowait, irq, softirq, used, total;
     FILE *fd = fopen("/proc/stat", "r");
@@ -126,7 +126,7 @@ float getcpu(void)
     return 100. - ((float)(total-used) / total * 100.);
 }
 
-char *dateandtime(void) 
+char *dateandtime(void)
 {
     const char weekdays[7][10] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     const char months[12][10] = {"January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"};
