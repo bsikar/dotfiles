@@ -2,11 +2,10 @@ call plug#begin('~/.vim/plugged')                           " plug stuff
 Plug 'dense-analysis/ale'                                   " code inteligence
 Plug 'rust-analyzer/rust-analyzer'                          " rust inteligence
 Plug 'bsikar/vim_monochrome'                                " colorscheme
-Plug 'lighthaus-theme/vim-lighthaus'                        "coloscheme
+Plug 'rust-lang/rust.vim'                                   " rust
 call plug#end()                                             " end plug stuff
 
 colorscheme monochrome                                      " colorscheme
-"colorscheme lighthaus                                        " colorscheme
 
 set encoding=utf-8                                          " set the encoding
 set number " relativenumber                                 " show numbers on relatively
@@ -27,6 +26,8 @@ set incsearch                                               " cool search thing
 set ignorecase                                              " works with smart case to ignore caps when search is in lowercase
 set smartcase                                               " ^^^
 set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·   " cool dots on the screen when S-Tab is pressed
+
+let g:rustfmt_autosave = 1 " run rustfmt on save
 
 " press things to do things
 nnoremap SP :set invpaste<cr>
@@ -51,6 +52,18 @@ function! Spaces(size)
     retab!
 endfunction
 
+function! <SID>StripTrailingWhitespaces()
+  if !&binary && &filetype != 'diff'
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+  endif
+endfun
+
+" remove trailing whitespace when saving any file
+autocmd BufWritePre,FileWritePre,FileAppendPre,FilterWritePre *
+  \ :call <SID>StripTrailingWhitespaces()
+
 function! Unixify()
     if &l:fileformat != 'unix'
         setlocal fileformat=unix
@@ -71,6 +84,7 @@ augroup COMPILER
     autocmd FileType python let &makeprg = 'python3 "%"'
     autocmd FileType haskell let &makeprg = 'ghc'.s:hs_args
     autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell nnoremap CT :make<cr>
+    autocmd FileType rust nnoremap RF :RustFmt<cr>
 augroup END
 
 augroup INDENT
