@@ -32,7 +32,6 @@ let g:rustfmt_autosave = 1 " run rustfmt on save
 " press things to do things
 nnoremap SP :set invpaste<cr>
 nnoremap tt :term<cr>
-nnoremap ct :!cargo run<cr>
 nnoremap <S-Tab> :set list!<cr>
 
 function! Spaces(size)
@@ -84,6 +83,7 @@ augroup COMPILER
     autocmd FileType python let &makeprg = 'python3 "%"'
     autocmd FileType haskell let &makeprg = 'ghc'.s:hs_args
     autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell nnoremap CT :make<cr>
+    autocmd FileType rust nnoremap ct :!cargo run<cr>
     autocmd FileType rust nnoremap RF :RustFmt<cr>
 augroup END
 
