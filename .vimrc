@@ -27,6 +27,7 @@ set ignorecase                                              " works with smart c
 set smartcase                                               " ^^^
 set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·   " cool dots on the screen when S-Tab is pressed
 
+let g:loaded_matchparen=1  " dont highlight other paren
 let g:rustfmt_autosave = 1 " run rustfmt on save
 
 " press things to do things
