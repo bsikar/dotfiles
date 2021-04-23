@@ -76,6 +76,7 @@ augroup COMPILER
     let s:args = ' "%" -o "%:r" && ./"%:r" && rm "%:r"'
     let s:java_args = ' "%" && java "%:r" && rm "%:r".class'
     let s:hs_args = ' "%" -o "%:r" && ./"%:r" && rm "%:r" "%:r".o "%:r".hi'
+    let s:latex_args = ' "%" && rm "%:r".aux "%:r".log && evince "%:r".pdf && rm "%:r".pdf'
     autocmd FileType cpp,cc let &makeprg = 'clang++'.s:args
     autocmd FileType c let &makeprg = 'clang'.s:args
     autocmd FileType rust let &makeprg = 'rustc'.s:args
@@ -83,7 +84,8 @@ augroup COMPILER
     autocmd FileType java let &makeprg = 'javac'.s:java_args
     autocmd FileType python let &makeprg = 'python3 "%"'
     autocmd FileType haskell let &makeprg = 'ghc'.s:hs_args
-    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell nnoremap CT :make<cr>
+    autocmd FileType tex let &makeprg = 'pdflatex'.s:latex_args
+    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell,tex nnoremap CT :make<cr>
     autocmd FileType rust nnoremap ct :!cargo run<cr>
     autocmd FileType rust nnoremap RF :RustFmt<cr>
 augroup END
