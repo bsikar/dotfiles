@@ -7,7 +7,7 @@ Plug 'rust-lang/rust.vim'                                   " rust
 call plug#end()                                             " end plug stuff
 
 "colorscheme monochrome                                      " colorscheme
-colorcheme 256_noir                                          " colorscheme
+colorscheme 256_noir                                         " colorscheme
 
 set encoding=utf-8                                          " set the encoding
 set number " relativenumber                                 " show numbers on relatively
