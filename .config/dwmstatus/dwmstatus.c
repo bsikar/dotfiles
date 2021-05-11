@@ -141,7 +141,5 @@ char *dateandtime(void) {
         }
     }
 
-    free(time);
-
     return smprintf("%s, %s %d - %s ", weekdays[tm.tm_wday], months[tm.tm_mon], tm.tm_mday, time);
 }
