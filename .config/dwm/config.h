@@ -97,7 +97,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[] = { "st", NULL };
+static const char *termcmd1[] = { "xfce4-terminal", NULL };
+static const char *termcmd2[] = { "st", NULL };
 static const char *brave[] = { "brave", NULL };
 static const char *discord[] = { "discord", NULL };
 static const char *pavucontrol[] = { "pavucontrol", NULL };
@@ -136,7 +137,8 @@ static Key keys[] = {
     { MODKEY,           XK_l,       setmfact,       {.f = +0.05} },
     { MODKEY,           XK_semicolon,   shiftview,  { .i = 1 } },
     { MODKEY|ShiftMask,     XK_semicolon,   shifttag,   { .i = 1 } },
-    { MODKEY,           XK_Return,  spawn,      {.v = termcmd } },
+    { MODKEY,           XK_Return,  spawn,      {.v = termcmd1 } },
+    { MODKEY|ShiftMask,           XK_Return,  spawn,      {.v = termcmd2 } },
     { MODKEY,           XK_z,       incrgaps,   {.i = +3 } },
     { MODKEY|ShiftMask,         XK_z,       incrgaps,   {.i = -3 } },
     /* V is automatically bound above in STACKKEYS */
@@ -155,10 +157,10 @@ static Key keys[] = {
     { MODKEY|ShiftMask,     XK_t,       setlayout,  {.v = &layouts[1]} }, /* bstack */
     { MODKEY,           XK_y,       setlayout,  {.v = &layouts[2]} }, /* spiral */
     { MODKEY|ShiftMask,     XK_y,       setlayout,  {.v = &layouts[3]} }, /* dwindle */
-    { MODKEY,           XK_u,       setlayout,  {.v = &layouts[4]} }, /* deck */
-    { MODKEY|ShiftMask,     XK_u,       setlayout,  {.v = &layouts[5]} }, /* monocle */
-    { MODKEY,           XK_i,       setlayout,  {.v = &layouts[6]} }, /* centeredmaster */
-    { MODKEY|ShiftMask,     XK_i,       setlayout,  {.v = &layouts[7]} }, /* centeredfloatingmaster */
+    /*{ MODKEY,           XK_u,       setlayout,  {.v = &layouts[4]} }, // deck */
+    /*{ MODKEY|ShiftMask,     XK_u,       setlayout,  {.v = &layouts[5]} }, // monocle */
+    /*{ MODKEY,           XK_i,       setlayout,  {.v = &layouts[6]} }, // centeredmaster */
+    /*{ MODKEY|ShiftMask,     XK_i,       setlayout,  {.v = &layouts[7]} }, // centeredfloatingmaster */
     { 0, XF86XK_AudioMute,      spawn,      SHCMD("pamixer -t") },
     { 0, XF86XK_AudioRaiseVolume,   spawn,      SHCMD("pamixer -i 5") },
     { 0, XF86XK_AudioLowerVolume,   spawn,      SHCMD("pamixer -d 5") },
