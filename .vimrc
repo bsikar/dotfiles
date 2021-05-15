@@ -1,17 +1,16 @@
 call plug#begin('~/.vim/plugged')                           " plug stuff
 Plug 'dense-analysis/ale'                                   " code inteligence
 Plug 'rust-analyzer/rust-analyzer'                          " rust inteligence
-"Plug 'bsikar/vim_monochrome'                                " colorscheme
+Plug 'bsikar/vim_monochrome'                                " colorscheme
 Plug 'andreasvc/vim-256noir'                                " colorscheme
 Plug 'rust-lang/rust.vim'                                   " rust
+Plug 'justinmk/vim-dirvish'
 call plug#end()                                             " end plug stuff
 
-"colorscheme monochrome                                      " colorscheme
-colorscheme 256_noir                                         " colorscheme
+colorscheme monochrome                                      " colorscheme
 
 set encoding=utf-8                                          " set the encoding
 set number " relativenumber                                 " show numbers on relatively
-set autochdir                                               " set current directory as working directory
 set hlsearch                                                " show all search matches
 set mouse=a                                                 " allow the mouse to click
 set shiftwidth=4                                            " shift width
@@ -29,7 +28,7 @@ set ignorecase                                              " works with smart c
 set smartcase                                               " ^^^
 set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·   " cool dots on the screen when S-Tab is pressed
 
-let g:loaded_matchparen=1  " dont highlight other paren
+"let g:loaded_matchparen=1  " dont highlight other paren
 let g:rustfmt_autosave = 1 " run rustfmt on save
 
 " press things to do things
