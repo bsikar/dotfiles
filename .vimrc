@@ -37,6 +37,18 @@ nnoremap tt :term<cr>
 nnoremap <S-Tab> :set list!<cr>
 nnoremap CP :!xclip -selection clipboard "%"<cr>
 
+
+" things to remember:
+" vs, vertical split
+" sp, horizontal split
+"
+" control direction to change splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+
 function! Spaces(size)
     " update the current spaces to tabs before changing the size of a tab
     "let &l:shiftwidth=&shiftwidth
