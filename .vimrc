@@ -35,14 +35,15 @@ let g:rustfmt_autosave = 1 " run rustfmt on save
 nnoremap SP :set invpaste<cr>
 nnoremap tt :term<cr>
 nnoremap <S-Tab> :set list!<cr>
+nnoremap CP :!xclip -selection clipboard "%"<cr>
 
 function! Spaces(size)
     " update the current spaces to tabs before changing the size of a tab
-    let &l:shiftwidth=&shiftwidth
-    let &l:tabstop=&tabstop
-    let &l:softtabstop=&softtabstop
-    setlocal noexpandtab
-    retab!
+    "let &l:shiftwidth=&shiftwidth
+    "let &l:tabstop=&tabstop
+    "let &l:softtabstop=&softtabstop
+    "setlocal noexpandtab
+    "retab!
 
     " change tabs to spaces
     let &l:shiftwidth=a:size
@@ -86,7 +87,8 @@ augroup COMPILER
     autocmd FileType python let &makeprg = 'python3 "%"'
     autocmd FileType haskell let &makeprg = 'ghc'.s:hs_args
     autocmd FileType tex let &makeprg = 'pdflatex'.s:latex_args
-    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell,tex nnoremap CT :make<cr>
+    autocmd FileType html let &makeprg = 'firefox "%"'
+    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell,tex,html nnoremap CT :make<cr>
     autocmd FileType rust nnoremap ct :!cargo run<cr>
     autocmd FileType rust nnoremap RF :RustFmt<cr>
 augroup END
