@@ -102,22 +102,37 @@ float getswap(void) {
 }
 
 float getcpu(void) {
-    long int user, nice, system, idle, iowait, irq, softirq, used, total;
+    // awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else printf ($2+$4-u1) * 100 / (t-t1) "%"; }' <(grep 'cpu ' /proc/stat) <(sleep 1;grep 'cpu ' /proc/stat)
     FILE *fd = fopen("/proc/stat", "r");
+    long u, t, u1, t1;
+    long user, system, idle;
 
     if (fd == NULL) {
         perror("fopen");
         exit(1);
     }
 
-    fscanf(fd, "%*s %ld %ld %ld %ld %ld %ld %ld", &user, &nice, &system, &idle, &iowait, &irq, &softirq);
+    // "cpu", user, nice, system, idle, iowait, irq, softirq
+    fscanf(fd, "%*s %ld %*d %ld %ld %*d %*d %*d", &user, &system, &idle);
+    u = user + system;
+    t = user + system + idle;
+    u1 = u;
+    t1 = t;
+    fclose(fd);
+    sleep(1);
 
-    used = user + nice + system + irq + softirq;
-    total = user + nice + system + idle + iowait + irq + softirq;
+    fd = fopen("/proc/stat", "r");
+    if (fd == NULL) {
+        perror("fopen");
+        exit(1);
+    }
 
+    fscanf(fd, "%*s %ld %*d %ld %ld %*d %*d %*d", &user, &system, &idle);
+    u = user + system;
+    t = user + system + idle;
     fclose(fd);
 
-    return 100. - ((float)(total-used) / total * 100.);
+    return (user + system - u1) * 100. / (t - t1);
 }
 
 char *dateandtime(void) {
@@ -141,5 +156,7 @@ char *dateandtime(void) {
         }
     }
 
+
     return smprintf("%s, %s %d - %s ", weekdays[tm.tm_wday], months[tm.tm_mon], tm.tm_mday, time);
+    free(time);
 }
