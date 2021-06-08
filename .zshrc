@@ -1,6 +1,6 @@
 export EDITOR='vim'
 
-export ZSH="~/.oh-my-zsh"
+export ZSH="/home/god/.oh-my-zsh"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
@@ -23,5 +23,6 @@ alias cpy="xclip -selection clipboard"
 alias poff="poweroff"
 alias lol="lolcat"
 alias y="yes"
+alias x="startx"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
