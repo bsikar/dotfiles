@@ -1,6 +1,6 @@
 export EDITOR='vim'
 
-export ZSH="~/.oh-my-zsh"
+export ZSH="/home/god/.oh-my-zsh"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
