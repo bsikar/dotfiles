@@ -2,12 +2,12 @@
 
 /* Constants */
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 50;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 5;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 5;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 5;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 5;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 0;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 0;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 0;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 0;       /* vert outer gap between windows and screen edge */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -15,12 +15,12 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Iosevka Extended:size=16"  };
 static char dmenufont[]             = "Iosevka Extended:size=16";
 
-static char normbgcolor[]           = "#1c1c1c";
-static char normbordercolor[]       = "#290C0C";
+static char normbgcolor[]           = "#282828";
+static char normbordercolor[]       = "#282828";
 static char normfgcolor[]           = "#564F4F";
 static char selfgcolor[]            = "#564F4F";
-static char selbordercolor[]        = "#444444";
-static char selbgcolor[]            = "#1c1c1c";
+static char selbordercolor[]        = "#282828";
+static char selbgcolor[]            = "#282828";
 
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -51,8 +51,9 @@ static const Rule rules[] = {
     { "St",     NULL,       "st",              1 << 8,       0,           0,         0,        -1 },
 };
 
+
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 #define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
@@ -153,14 +154,18 @@ static Key keys[] = {
     { MODKEY|ShiftMask,     XK_Page_Up, shifttag,   { .i = -1 } },
     { MODKEY,           XK_Page_Down,   shiftview,  { .i = +1 } },
     { MODKEY|ShiftMask,     XK_Page_Down,   shifttag,   { .i = +1 } },
-    { MODKEY,           XK_t,       setlayout,  {.v = &layouts[0]} }, /* tile */
-    { MODKEY|ShiftMask,     XK_t,       setlayout,  {.v = &layouts[1]} }, /* bstack */
-    { MODKEY,           XK_y,       setlayout,  {.v = &layouts[2]} }, /* spiral */
-    { MODKEY|ShiftMask,     XK_y,       setlayout,  {.v = &layouts[3]} }, /* dwindle */
-    /*{ MODKEY,           XK_u,       setlayout,  {.v = &layouts[4]} }, // deck */
-    /*{ MODKEY|ShiftMask,     XK_u,       setlayout,  {.v = &layouts[5]} }, // monocle */
-    /*{ MODKEY,           XK_i,       setlayout,  {.v = &layouts[6]} }, // centeredmaster */
-    /*{ MODKEY|ShiftMask,     XK_i,       setlayout,  {.v = &layouts[7]} }, // centeredfloatingmaster */
+
+    { MODKEY,           XK_t,       setlayout,  {.v = &layouts[0]} }, // tile
+    { MODKEY|ShiftMask,     XK_t,       setlayout,  {.v = &layouts[1]} }, // bstack
+    { MODKEY|ControlMask,     XK_t,       setlayout,  {.v = &layouts[6]} }, // centeredmaster
+    { MODKEY,           XK_y,       setlayout,  {.v = &layouts[2]} }, // spiral
+    { MODKEY|ShiftMask,     XK_y,       setlayout,  {.v = &layouts[3]} }, // dwindle
+
+    //{ MODKEY,           XK_u,       setlayout,  {.v = &layouts[4]} }, // deck
+    //{ MODKEY|ShiftMask,     XK_u,       setlayout,  {.v = &layouts[5]} }, // monocle
+    //{ MODKEY,           XK_i,       setlayout,  {.v = &layouts[6]} }, // centeredmaster
+    //{ MODKEY|ShiftMask,     XK_i,       setlayout,  {.v = &layouts[7]} }, // centeredfloatingmaster
+
     { 0, XF86XK_AudioMute,      spawn,      SHCMD("pamixer -t") },
     { 0, XF86XK_AudioRaiseVolume,   spawn,      SHCMD("pamixer -i 5") },
     { 0, XF86XK_AudioLowerVolume,   spawn,      SHCMD("pamixer -d 5") },
