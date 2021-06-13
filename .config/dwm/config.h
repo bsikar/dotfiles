@@ -101,8 +101,12 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd1[] = { "xfce4-terminal", NULL };
 static const char *termcmd2[] = { "st", NULL };
 static const char *brave[] = { "brave", NULL };
+static const char *librewolf[] = { "librewolf", NULL };
+static const char *tor[] = { "torbrowser-launcher", NULL };
+static const char *code[] = { "code", NULL };
 static const char *discord[] = { "discord", NULL };
-static const char *pavucontrol[] = { "pavucontrol", NULL };
+static const char *helvum[] = { "helvum", NULL };
+static const char *torch[] = { "noisetorch", NULL };
 static const char *snip[] = { "flameshot", "gui", NULL };
 static const char *spotify[] = { "spotify", NULL };
 static const char *mail[] = { "tutanota-desktop", NULL };
@@ -114,6 +118,9 @@ static Key keys[] = {
     { MODKEY,           XK_0,       view,       {.ui = ~0 } },
     { MODKEY|ShiftMask,     XK_0,       tag,        {.ui = ~0 } },
     { MODKEY|ShiftMask,         XK_b,       spawn,          {.v = brave } },
+    { MODKEY|ShiftMask|ControlMask,         XK_b,       spawn,          {.v = tor } },
+    { MODKEY|ControlMask,         XK_b,       spawn,          {.v = librewolf } },
+    { MODKEY,         XK_c,       spawn,          {.v = code } },
 
     { MODKEY,           XK_Tab,     view,       {0} },
     { MODKEY,           XK_q,       killclient, {0} },
@@ -126,7 +133,8 @@ static Key keys[] = {
     { MODKEY,           XK_d,       spawn,          {.v = dmenucmd } },
     { MODKEY|ShiftMask,         XK_d,       spawn,          {.v = discord } },
     { MODKEY,           XK_p,       spawn,          {.v = snip } },
-    { MODKEY|ShiftMask,         XK_p,       spawn,          {.v = pavucontrol } },
+    { MODKEY|ShiftMask,         XK_p,       spawn,          {.v = helvum } },
+    { MODKEY|ControlMask,         XK_p,       spawn,          {.v = torch } },
     { MODKEY|ShiftMask,         XK_s,       spawn,          {.v = spotify } },
     { MODKEY|ShiftMask,         XK_n,       spawn,          {.v = mail } },
     { MODKEY,           XK_f,       togglefullscr,  {0} },
