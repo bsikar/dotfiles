@@ -106,6 +106,7 @@ static const char *tor[] = { "torbrowser-launcher", NULL };
 static const char *code[] = { "code", NULL };
 static const char *discord[] = { "discord", NULL };
 static const char *helvum[] = { "helvum", NULL };
+static const char *pavucontrol[] = { "pavucontrol", NULL };
 static const char *torch[] = { "noisetorch", NULL };
 static const char *snip[] = { "flameshot", "gui", NULL };
 static const char *spotify[] = { "spotify", NULL };
@@ -135,6 +136,7 @@ static Key keys[] = {
     { MODKEY,           XK_p,       spawn,          {.v = snip } },
     { MODKEY|ShiftMask,         XK_p,       spawn,          {.v = helvum } },
     { MODKEY|ControlMask,         XK_p,       spawn,          {.v = torch } },
+    { MODKEY|ShiftMask|ControlMask,         XK_p,       spawn,          {.v = pavucontrol } },
     { MODKEY|ShiftMask,         XK_s,       spawn,          {.v = spotify } },
     { MODKEY|ShiftMask,         XK_n,       spawn,          {.v = mail } },
     { MODKEY,           XK_f,       togglefullscr,  {0} },
