@@ -118,9 +118,9 @@ static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,           XK_0,       view,       {.ui = ~0 } },
     { MODKEY|ShiftMask,     XK_0,       tag,        {.ui = ~0 } },
-    { MODKEY|ShiftMask,         XK_b,       spawn,          {.v = brave } },
+    { MODKEY|ShiftMask,         XK_b,       spawn,          {.v = librewolf } },
     { MODKEY|ShiftMask|ControlMask,         XK_b,       spawn,          {.v = tor } },
-    { MODKEY|ControlMask,         XK_b,       spawn,          {.v = librewolf } },
+    { MODKEY|ControlMask,         XK_b,       spawn,          {.v = brave } },
     { MODKEY,         XK_c,       spawn,          {.v = code } },
 
     { MODKEY,           XK_Tab,     view,       {0} },
