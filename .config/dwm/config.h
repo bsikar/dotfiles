@@ -98,7 +98,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd1[] = { "xfce4-terminal", NULL };
+static const char *termcmd1[] = { "terminator", NULL };
 static const char *termcmd2[] = { "st", NULL };
 static const char *brave[] = { "brave", NULL };
 static const char *librewolf[] = { "librewolf", NULL };
@@ -225,3 +225,4 @@ static Button buttons[] = {
     { ClkTagBar,        0,      Button5,    shiftview,  {.i = 1} },
     { ClkRootWin,       0,      Button2,    togglebar,  {0} },
 };
+
