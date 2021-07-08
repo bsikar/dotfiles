@@ -1,8 +1,6 @@
 call plug#begin('~/.vim/plugged')                           " plug stuff
 Plug 'dense-analysis/ale'                                   " code inteligence
-Plug 'rust-analyzer/rust-analyzer'                          " rust inteligence
 Plug 'bsikar/vim_monochrome'                                " colorscheme
-Plug 'andreasvc/vim-256noir'                                " colorscheme
 Plug 'rust-lang/rust.vim'                                   " rust
 Plug 'justinmk/vim-dirvish'
 call plug#end()                                             " end plug stuff
@@ -37,7 +35,6 @@ nnoremap tt :term<cr>
 nnoremap <S-Tab> :set list!<cr>
 nnoremap CP :!xclip -selection clipboard "%"<cr>
 
-
 " things to remember:
 " vs, vertical split
 " sp, horizontal split
@@ -47,7 +44,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
+nnoremap ZZ :vs<cr>
+nnoremap zz :sp<cr>
 
 function! Spaces(size)
     " update the current spaces to tabs before changing the size of a tab
@@ -142,3 +140,4 @@ function! StatuslineMode()
         return "SHELL"
     endif
 endfunction
+
