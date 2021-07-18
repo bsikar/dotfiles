@@ -111,6 +111,7 @@ static const char *torch[] = { "noisetorch", NULL };
 static const char *snip[] = { "flameshot", "gui", NULL };
 static const char *spotify[] = { "spotify", NULL };
 static const char *mail[] = { "tutanota-desktop", NULL };
+static const char *filemanager[] = { "thunar", NULL };
 
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
@@ -137,6 +138,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,         XK_p,       spawn,          {.v = helvum } },
     { MODKEY|ControlMask,         XK_p,       spawn,          {.v = torch } },
     { MODKEY|ShiftMask|ControlMask,         XK_p,       spawn,          {.v = pavucontrol } },
+    { MODKEY|ShiftMask|ControlMask,         XK_t,       spawn,          {.v = filemanager } },
     { MODKEY|ShiftMask,         XK_s,       spawn,          {.v = spotify } },
     { MODKEY|ShiftMask,         XK_n,       spawn,          {.v = mail } },
     { MODKEY,           XK_f,       togglefullscr,  {0} },
@@ -225,4 +227,3 @@ static Button buttons[] = {
     { ClkTagBar,        0,      Button5,    shiftview,  {.i = 1} },
     { ClkRootWin,       0,      Button2,    togglebar,  {0} },
 };
-
