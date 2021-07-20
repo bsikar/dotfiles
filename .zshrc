@@ -19,7 +19,7 @@ alias l="ls -lah"
 alias cl="clear;ls"
 alias pf="pfetch"
 alias nf="neofetch"
-alias poweroff="doas poweroff"
+alias poweroff="sudo poweroff"
 alias cpy="xclip -selection clipboard"
 alias poff="poweroff"
 alias lol="lolcat"
@@ -28,6 +28,15 @@ alias x="startx"
 alias vpn-up="sudo wg-quick up mlvdde21se2"
 alias vpn-down="sudo wg-quick down mlvdde21se2"
 alias vpn-status="curl https://am.i.mullvad.net/connected"
+
+# CARGO - default
+alias cr="cargo run"
+alias cb="cargo build"
+alias cf="cargo fetch"
+# CARGO - other
+alias ca="cargo add"
+alias crm="cargo rm"
+alias ce="cargo expand"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
