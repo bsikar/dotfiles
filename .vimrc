@@ -1,11 +1,12 @@
 call plug#begin('~/.vim/plugged')                           " plug stuff
 Plug 'dense-analysis/ale'                                   " code inteligence
-Plug 'bsikar/vim_monochrome'                                " colorscheme
 Plug 'rust-lang/rust.vim'                                   " rust
-Plug 'justinmk/vim-dirvish'
+Plug 'justinmk/vim-dirvish'                                 " edit different files
+Plug 'gruvbox-community/gruvbox'                            " colorscheme
 call plug#end()                                             " end plug stuff
 
-colorscheme monochrome                                      " colorscheme
+colorscheme gruvbox                                         " colorscheme
+let g:gruvbox_invert_selection = 0                          " make highlightling better
 
 set encoding=utf-8                                          " set the encoding
 set number " relativenumber                                 " show numbers on relatively
@@ -116,7 +117,7 @@ augroup END
 
 " bar "
 set laststatus=2
-set statusline=%1*%f\ %y%=%2*<%{StatuslineMode()}>\ %l/%L
+set statusline=%1*%f\ %y%=%2*<%{StatuslineMode()}>\ %l/%L:%c
 hi User1 ctermfg=lightmagenta
 hi User2 ctermfg=lightmagenta
 
