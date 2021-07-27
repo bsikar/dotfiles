@@ -6,6 +6,7 @@ Plug 'gruvbox-community/gruvbox'                            " colorscheme
 call plug#end()                                             " end plug stuff
 
 colorscheme gruvbox                                         " colorscheme
+set background=dark
 let g:gruvbox_invert_selection = 0                          " make highlightling better
 
 set encoding=utf-8                                          " set the encoding
