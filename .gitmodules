@@ -1,0 +1,3 @@
+[submodule ".config/dwmblocks"]
+	path = .config/dwmblocks
+	url = https://github.com/bsikar/dwmblocks
