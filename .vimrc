@@ -3,12 +3,16 @@ Plug 'dense-analysis/ale'                                   " code inteligence
 Plug 'rust-lang/rust.vim'                                   " rust
 Plug 'justinmk/vim-dirvish'                                 " edit different files
 Plug 'gruvbox-community/gruvbox'                            " colorscheme
+Plug 'altercation/vim-colors-solarized'                     " colorscheme
 call plug#end()                                             " end plug stuff
 
-colorscheme gruvbox                                         " colorscheme
+"colorscheme gruvbox                                         " colorscheme
+"set background=dark
+"let g:gruvbox_invert_selection = 0                          " make highlightling better
+colorscheme solarized
 set background=dark
-let g:gruvbox_invert_selection = 0                          " make highlightling better
 
+set nowrap                                                  " don't wrap text
 set encoding=utf-8                                          " set the encoding
 set number " relativenumber                                 " show numbers on relatively
 set hlsearch                                                " show all search matches
@@ -16,6 +20,7 @@ set mouse=a                                                 " allow the mouse to
 set shiftwidth=4                                            " shift width
 set tabstop=4                                               " tab stop
 set softtabstop=4                                           " sets the number of columns for a tab
+set shiftround                                              " always indent/outdent to the nearest tabstop
 set autoindent                                              " auto indent
 set smarttab                                                " insert spaces or tabs to go to the next indent
 set expandtab                                               " use spaces as tabs
@@ -36,6 +41,7 @@ nnoremap SP :set invpaste<cr>
 nnoremap tt :term<cr>
 nnoremap <S-Tab> :set list!<cr>
 nnoremap CP :!xclip -selection clipboard "%"<cr>
+nnoremap _ :noh<cr>
 
 " things to remember:
 " vs, vertical split
@@ -100,7 +106,8 @@ augroup COMPILER
     autocmd FileType haskell let &makeprg = 'ghc'.s:hs_args
     autocmd FileType tex let &makeprg = 'pdflatex'.s:latex_args
     autocmd FileType html let &makeprg = 'firefox "%"'
-    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell,tex,html nnoremap CT :make<cr>
+    autocmd FileType sh let &makeprg = 'sh "%"'
+    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell,tex,sh,html nnoremap CT :make<cr>
     autocmd FileType rust nnoremap ct :!cargo run<cr>
     autocmd FileType rust nnoremap RF :RustFmt<cr>
 augroup END

@@ -19,7 +19,7 @@ alias l="ls -lah"
 alias cl="clear;ls"
 alias pf="pfetch"
 alias nf="neofetch"
-alias poweroff="sudo poweroff"
+alias poweroff="doas poweroff"
 alias cpy="xclip -selection clipboard"
 alias poff="poweroff"
 alias lol="lolcat"
@@ -31,7 +31,9 @@ alias vpn-status="curl https://am.i.mullvad.net/connected"
 
 # CARGO - default
 alias cr="cargo run"
+alias crr="cargo run --release"
 alias cb="cargo build"
+alias cbr="cargo build --release"
 alias cf="cargo fetch"
 # CARGO - other
 alias ca="cargo add"
