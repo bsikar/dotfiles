@@ -15,12 +15,12 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Iosevka Extended:size=16"  };
 static char dmenufont[]             = "Iosevka Extended:size=16";
 
-static char normbgcolor[]           = "#282828";
-static char normbordercolor[]       = "#282828";
-static char normfgcolor[]           = "#564F4F";
-static char selfgcolor[]            = "#564F4F";
-static char selbordercolor[]        = "#282828";
-static char selbgcolor[]            = "#282828";
+static char normbgcolor[]           = "#073642";
+static char normbordercolor[]       = "#002b36";
+static char normfgcolor[]           = "#586e75";
+static char selfgcolor[]            = "#586e75";
+static char selbordercolor[]        = "#002b36";
+static char selbgcolor[]            = "#002b36";
 
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -112,6 +112,7 @@ static const char *snip[] = { "flameshot", "gui", NULL };
 static const char *spotify[] = { "spotify", NULL };
 static const char *mail[] = { "tutanota-desktop", NULL };
 static const char *filemanager[] = { "thunar", NULL };
+static const char *rofi[] = { "rofi", "-theme", "solarized", "-show", "run", NULL };
 
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
@@ -133,6 +134,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,     XK_a,       defaultgaps,    {0} },
     { MODKEY,           XK_s,       togglesticky,   {0} },
     { MODKEY,           XK_d,       spawn,          {.v = dmenucmd } },
+    { MODKEY,           XK_r,       spawn,          {.v = rofi } },
     { MODKEY|ShiftMask,         XK_d,       spawn,          {.v = discord } },
     { MODKEY,           XK_p,       spawn,          {.v = snip } },
     { MODKEY|ShiftMask,         XK_p,       spawn,          {.v = helvum } },
@@ -227,3 +229,4 @@ static Button buttons[] = {
     { ClkTagBar,        0,      Button5,    shiftview,  {.i = 1} },
     { ClkRootWin,       0,      Button2,    togglebar,  {0} },
 };
+
