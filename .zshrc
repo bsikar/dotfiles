@@ -35,6 +35,7 @@ alias crr="cargo run --release"
 alias cb="cargo build"
 alias cbr="cargo build --release"
 alias cf="cargo fetch"
+alias cn="cargo new"
 # CARGO - other
 alias ca="cargo add"
 alias crm="cargo rm"
