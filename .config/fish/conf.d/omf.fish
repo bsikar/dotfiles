@@ -22,6 +22,7 @@ alias poff="poweroff"
 alias lol="lolcat"
 alias y="yes"
 alias x="startx"
+alias tb="nc termbin.com 9999"
 
 # CARGO - default
 alias cr="cargo run"

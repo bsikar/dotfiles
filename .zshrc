@@ -25,9 +25,7 @@ alias poff="poweroff"
 alias lol="lolcat"
 alias y="yes"
 alias x="startx"
-alias vpn-up="sudo wg-quick up mlvdde21se2"
-alias vpn-down="sudo wg-quick down mlvdde21se2"
-alias vpn-status="curl https://am.i.mullvad.net/connected"
+alias tb="nc termbin.com 9999"
 
 # CARGO - default
 alias cr="cargo run"
@@ -42,4 +40,5 @@ alias crm="cargo rm"
 alias ce="cargo expand"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 

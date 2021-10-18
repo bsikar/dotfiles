@@ -4,6 +4,7 @@ Plug 'rust-lang/rust.vim'                                   " rust
 Plug 'justinmk/vim-dirvish'                                 " edit different files
 Plug 'gruvbox-community/gruvbox'                            " colorscheme
 Plug 'altercation/vim-colors-solarized'                     " colorscheme
+Plug 'mhinz/vim-startify'                                   " splash screen
 call plug#end()                                             " end plug stuff
 
 "colorscheme gruvbox                                         " colorscheme
@@ -39,8 +40,8 @@ let g:rustfmt_autosave = 1 " run rustfmt on save
 " press things to do things
 nnoremap SP :set invpaste<cr>
 nnoremap tt :term<cr>
-nnoremap <S-Tab> :set list!<cr>
-nnoremap CP :!xclip -selection clipboard "%"<cr>
+nnoremap + :set list!<cr>
+vnoremap <silent>CP :w !xclip -selection clipboard<cr>
 nnoremap _ :noh<cr>
 
 " things to remember:
@@ -122,6 +123,28 @@ augroup MAKE_FILEFORMAT_UNIX
     autocmd!
     autocmd VimEnter * call Unixify()
 augroup END
+
+" startify "
+" 'Most Recent Files' number
+let g:startify_files_number           = 18
+
+" Update session automatically as you exit vim
+let g:startify_session_persistence    = 1
+
+" Simplify the startify list to just recent files and sessions
+let g:startify_lists = [
+  \ { 'type': 'dir',       'header': ['   Recent files'] },
+  \ { 'type': 'sessions',  'header': ['   Saved sessions'] },
+  \ ]
+
+" Fancy custom header
+let g:startify_custom_header = [
+  \ "  ",
+  \ '   ╻ ╻   ╻   ┏┳┓',
+  \ '   ┃┏┛   ┃   ┃┃┃',
+  \ '   ┗┛    ╹   ╹ ╹',
+  \ '   ',
+  \ ]
 
 " bar "
 set laststatus=2
