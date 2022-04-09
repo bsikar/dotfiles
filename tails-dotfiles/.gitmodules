@@ -1,0 +1,23 @@
+[submodule "ale"]
+	path = .vim/plugged/ale
+    url = https://github.com/dense-analysis/ale
+
+[submodule "rust-analyzer"]
+	path = .vim/plugged/rust-analyzer
+    url = https://github.com/rust-analyzer/rust-analyzer
+
+[submodule "vim_monochrome"]
+	path = .vim/plugged/vim_monochrome
+    url = https://github.com/bsikar/vim_monochrome
+
+[submodule "vim-256noir"]
+	path = .vim/plugged/vim-256noir
+    url = https://github.com/andreasvc/vim-256noir
+
+[submodule "rust-lang/rust"]
+	path = .vim/plugged/rust.vim
+    url = https://github.com/rust-lang/rust
+
+[submodule "vim-dirvish"]
+	path = .vim/plugged/vim-dirvish
+    url = https://github.com/justinmk/vim-dirvish

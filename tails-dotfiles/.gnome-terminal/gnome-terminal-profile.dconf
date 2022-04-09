@@ -1,0 +1,12 @@
+[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+foreground-color='rgb(235,217,180)'
+visible-name='main'
+palette=['rgb(23,28,32)', 'rgb(205,38,42)', 'rgb(151,149,50)', 'rgb(215,150,57)', 'rgb(68,132,134)', 'rgb(177,98,132)', 'rgb(102,155,109)', 'rgb(223,173,137)', 'rgb(145,130,116)', 'rgb(253,73,63)', 'rgb(183,184,64)', 'rgb(251,186,72)', 'rgb(129,163,151)', 'rgb(211,133,153)', 'rgb(140,190,128)', 'rgb(235,217,180)']
+cursor-background-color='rgb(191,190,187)'
+cursor-colors-set=true
+use-theme-colors=false
+scrollback-unlimited=true
+bold-color-same-as-fg=false
+bold-color='rgb(145,160,159)'
+background-color='rgb(23,28,32)'
+
