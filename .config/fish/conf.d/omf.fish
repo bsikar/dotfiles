@@ -1,6 +1,3 @@
-set EDITOR "vim"
-set TERM "terminator"
-
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
@@ -8,6 +5,8 @@ set -q XDG_DATA_HOME
 
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
+
+set EDITOR "vim"
 
 alias q="exit"
 alias c="clear"
@@ -35,3 +34,7 @@ alias cn="cargo new"
 alias ca="cargo add"
 alias crm="cargo rm"
 alias ce="cargo expand"
+alias cfm="cargo fmt"
+
+alias up="sudo apt update -y && sudo apt upgrade -y"
+
