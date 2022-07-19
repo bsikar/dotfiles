@@ -14,6 +14,7 @@ alias l='ls -lah'
 alias cl='clear; ls'
 alias storage='sudo ncdu -x /'
 alias nf='neofetch'
+alias cpy='xclip -selection clipboard'
 
 function stop --description "stop <program name>"
 	set i (count $argv)
@@ -32,6 +33,7 @@ alias ls='exa'
 alias grep='rg'
 alias cat='bat'
 alias pd='procs'
+alias du='ncdu'
 
 # CARGO - default
 alias cr='cargo run'
