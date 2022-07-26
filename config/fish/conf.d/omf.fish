@@ -6,6 +6,8 @@ set -q XDG_DATA_HOME
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
 
+set PATH $HOME/.cargo/bin $PATH
+set PATH $HOME/.local/bin $PATH
 set EDITOR 'vim'
 
 alias wm='echo -e "Xephyr -br -ac -noreset -screen 800x600 :1\nDISPLAY=:1"'
