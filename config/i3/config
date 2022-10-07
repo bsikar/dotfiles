@@ -9,6 +9,10 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+
+# background / wallpaper
+exec feh --bg-scale ~/.config/wallpapers/solid-background.png
+
 # colors
 # class                 border  backgr. text    indicator child_border
 client.focused          #28181a #28181a #28181a #28181a #28181a

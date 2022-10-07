@@ -15,10 +15,11 @@ some of my linux config files
 - nodejs
     - nala install nodejs
 
-## packages
+## packages/utils
 - i3status-rust
 	- nala install librust-libdbus-sys-dev libssl-dev librust-libsensors-sys-dev
 	- cargo install i3status-rs
+    - run the install script: https://github.com/greshake/i3status-rust/blob/master/install.sh
 - alacritty
 	- apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 	- cargo install alacritty
@@ -39,8 +40,10 @@ some of my linux config files
 - ranger
 	- nala install ranger python3-pip libx11-dev libxext-dev
 	- pip3 install ueberzug
-
-## Utils
+- feh
+    - nala install feh
+- flameshot
+    - nala install flameshot
 - exa
     - nala install exa
 - rg
