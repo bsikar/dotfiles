@@ -12,6 +12,8 @@ some of my linux config files
 	- nala install i3
 - jetbrainsmono
     - nala install fonts-jetbrains-mono
+- nodejs
+    - nala install nodejs
 
 ## packages
 - i3status-rust
