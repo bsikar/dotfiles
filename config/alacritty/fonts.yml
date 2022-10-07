@@ -2,22 +2,22 @@
 font:
   # Normal (roman) font face
   normal:
-    family: "JetBrainsMono Nerd Font"
-    #style: Regular
+    family: "JetBrainsMono"
+    #style:
 
   # Bold font face
   bold:
-    family: "JetBrainsMono Nerd Font"
+    family: "JetBrainsMono"
     #style: Bold
 
   # Italic font face
   italic:
-    family: "JetBrainsMono Nerd Font"
+    family: "JetBrainsMono"
     #style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: "JetBrainsMono Nerd Font"
+    family: "JetBrainsMono"
     #style: Bold Italic
 
   # Point size

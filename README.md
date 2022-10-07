@@ -10,6 +10,8 @@ some of my linux config files
 	- curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 - i3
 	- nala install i3
+- jetbrainsmono
+    - nala install fonts-jetbrains-mono
 
 ## packages
 - i3status-rust
