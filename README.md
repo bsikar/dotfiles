@@ -36,4 +36,18 @@ some of my linux config files
 	- nala install ranger python3-pip libx11-dev
 	- pip3 install ueberzug
 
+## Utils
+- exa
+    - nala install exa
+- rg
+    - nala install ripgrep
+- bat (batcat)
+    - nala install bat
+- fd (fdfind)
+    - nala install fd-find
+- procs
+    - cargo install procs
+- ncdu
+    - nala install ncdu
+
 ![screenshot](https://user-images.githubusercontent.com/65072072/178594963-1c37d563-fa2b-446a-a7bd-97e95d6f418c.png)

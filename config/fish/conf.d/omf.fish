@@ -30,10 +30,10 @@ end
 
 # alternatives
 alias vim='nvim'
-alias find='fd'
+alias find='fdfind'
 alias ls='exa'
 alias grep='rg'
-alias cat='bat'
+alias cat='batcat'
 alias pd='procs'
 alias du='ncdu'
 
