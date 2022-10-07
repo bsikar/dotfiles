@@ -33,7 +33,7 @@ some of my linux config files
 - neovim
 	- nala install neovim
 - ranger
-	- nala install ranger python3-pip libx11-dev
+	- nala install ranger python3-pip libx11-dev libxext-dev
 	- pip3 install ueberzug
 
 ## Utils
