@@ -56,5 +56,17 @@ some of my linux config files
     - cargo install procs
 - ncdu
     - nala install ncdu
+- brightnessctl
+    - nala install brightnessctl
+    - NOTE: I had to edit this config file:
+        - /usr/lib/udev/rules.d/90-brightnessctl.rules
+```
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"
+ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp input /sys/class/leds/%k/brightness"
+ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chmod g+w /sys/class/leds/%k/brightness"
+```
+    - Then I had to add myself to the video group and logout and back in
+        - sudo gpasswd -a $USER video
 
 ![screenshot](https://user-images.githubusercontent.com/65072072/178594963-1c37d563-fa2b-446a-a7bd-97e95d6f418c.png)
