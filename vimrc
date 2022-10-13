@@ -55,6 +55,12 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap ZZ :vs<cr>
 nnoremap zz :sp<cr>
 
+" ale setup
+let opts = '-std=c++17 -Wall -Wextra'
+let g:ale_cpp_cc_options    = opts
+let g:ale_cpp_gcc_options   = opts
+let g:ale_cpp_clang_options = opts
+
 function! Spaces(size)
     " update the current spaces to tabs before changing the size of a tab
     "let &l:shiftwidth=&shiftwidth
