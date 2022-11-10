@@ -3,3 +3,6 @@ if status is-interactive
 end
 
 set fish_greeting
+
+# opam configuration
+source /home/ubuntu/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true

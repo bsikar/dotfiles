@@ -30,7 +30,7 @@ end
 
 # alternatives
 alias vim='nvim'
-alias find='fdfind'
+alias find='fd'
 alias ls='exa'
 alias grep='rg'
 alias cat='batcat'

@@ -6,6 +6,7 @@ Plug 'gruvbox-community/gruvbox'                            " colorscheme
 Plug 'altercation/vim-colors-solarized'                     " colorscheme
 Plug 'mhinz/vim-startify'                                   " splash screen
 Plug 'bsikar/vim-monochrome'                                " another color scheme
+Plug 'sbdchd/neoformat'
 call plug#end()                                             " end plug stuff
 
 colorscheme monochrome
@@ -14,7 +15,7 @@ set background=dark
 
 set nowrap                                                  " don't wrap text
 set encoding=utf-8                                          " set the encoding
-set number " relativenumber                                 " show numbers on relatively
+set number relativenumber                                   " show numbers on relatively and absolutely
 set hlsearch                                                " show all search matches
 set mouse=a                                                 " allow the mouse to click
 set shiftwidth=4                                            " shift width
@@ -36,6 +37,20 @@ set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·   " cool dots on the
 "let g:loaded_matchparen=1  " dont highlight other paren
 let g:rustfmt_autosave = 1 " run rustfmt on save
 
+let g:opambin = substitute(system('opam var bin'),'\n$','','''')
+let g:neoformat_ocaml_ocamlformat = {
+            \ 'exe': g:opambin . '/ocamlformat',
+            \ 'no_append': 1,
+            \ 'stdin': 1,
+            \ 'args': ['--enable-outside-detected-project', '--name', '"%:p"', '-']
+            \ }
+let g:neoformat_enabled_ocaml = ['ocamlformat']
+" run :Neoformat to format the file on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
 " press things to do things
 nnoremap SP :set invpaste<cr>
 nnoremap tt :term<cr>
@@ -54,12 +69,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap ZZ :vs<cr>
 nnoremap zz :sp<cr>
-
-" ale setup
-let opts = '-std=c++17 -Wall -Wextra'
-let g:ale_cpp_cc_options    = opts
-let g:ale_cpp_gcc_options   = opts
-let g:ale_cpp_clang_options = opts
 
 function! Spaces(size)
     " update the current spaces to tabs before changing the size of a tab
@@ -113,7 +122,8 @@ augroup COMPILER
     autocmd FileType tex let &makeprg = 'pdflatex'.s:latex_args
     autocmd FileType html let &makeprg = 'firefox "%"'
     autocmd FileType sh let &makeprg = 'sh "%"'
-    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell,tex,sh,html nnoremap CT :make<cr>
+    autocmd FileType ocaml let &makeprg = 'ocamlc'.s:args
+    autocmd FileType cpp,cc,c,rust,javascript,java,python,haskell,tex,sh,ocaml,html nnoremap CT :make<cr>
     autocmd FileType rust nnoremap ct :!cargo run<cr>
     autocmd FileType rust nnoremap RF :RustFmt<cr>
 augroup END
@@ -121,7 +131,7 @@ augroup END
 augroup INDENT
     autocmd!
     autocmd FileType html,css,javascript call Spaces(2)
-    autocmd FileType c,cc,cpp,rust,java,python,haskell call Spaces(4)
+    autocmd FileType c,cc,cpp,rust,java,python,haskell,ml call Spaces(4)
 augroup END
 
 augroup MAKE_FILEFORMAT_UNIX
@@ -178,3 +188,40 @@ function! StatuslineMode()
     endif
 endfunction
 
+" ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
+let s:opam_share_dir = system("opam var share")
+let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
+
+let s:opam_configuration = {}
+
+function! OpamConfOcpIndent()
+  execute "set rtp^=" . s:opam_share_dir . "/ocp-indent/vim"
+endfunction
+let s:opam_configuration['ocp-indent'] = function('OpamConfOcpIndent')
+
+function! OpamConfOcpIndex()
+  execute "set rtp+=" . s:opam_share_dir . "/ocp-index/vim"
+endfunction
+let s:opam_configuration['ocp-index'] = function('OpamConfOcpIndex')
+
+function! OpamConfMerlin()
+  let l:dir = s:opam_share_dir . "/merlin/vim"
+  execute "set rtp+=" . l:dir
+endfunction
+let s:opam_configuration['merlin'] = function('OpamConfMerlin')
+
+let s:opam_packages = ["ocp-indent", "ocp-index", "merlin"]
+let s:opam_check_cmdline = ["opam list --installed --short --safe --color=never"] + s:opam_packages
+let s:opam_available_tools = split(system(join(s:opam_check_cmdline)))
+for tool in s:opam_packages
+  " Respect package order (merlin should be after ocp-index)
+  if count(s:opam_available_tools, tool) > 0
+    call s:opam_configuration[tool]()
+  endif
+endfor
+" ## end of OPAM user-setup addition for vim / base ## keep this line
+" ## added by OPAM user-setup for vim / ocp-indent ## 51539424276c5d502e0b97c7cc729be5 ## you can edit, but keep this line
+if count(s:opam_available_tools,"ocp-indent") == 0
+  source "/home/ubuntu/.opam/default/share/ocp-indent/vim/indent/ocaml.vim"
+endif
+" ## end of OPAM user-setup addition for vim / ocp-indent ## keep this line
