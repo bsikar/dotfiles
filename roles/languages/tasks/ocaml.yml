@@ -1,0 +1,22 @@
+- name: install ocaml
+  become: yes
+  apt:
+    name:
+      - ocaml
+      - opam
+      - dune
+  tags:
+    - apt
+    - languages
+    - ocaml
+
+- name: install ocaml development tools
+  shell: |
+    opam init --auto-setup
+  #    opam install core core_bench utop
+  #    opam install user-setup merlin ocp-indent ocamlformat
+  #    opam user-setup install
+  #    eval $(opam env)
+  tags:
+    - languages
+    - ocaml

@@ -1,0 +1,13 @@
+- name: symlink dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/wallpapers/files/{{ item }}"
+    path: ~/.config/wallpapers/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - AssemblyBackground.png
+    - crimson.png
+    - solid-background.png
+  tags:
+    - wallpapers

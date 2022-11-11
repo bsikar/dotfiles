@@ -1,0 +1,15 @@
+- import_tasks: config.yml
+
+- name: install nvim
+  become: yes
+  apt:
+    name: neovim
+  tags:
+    - apt
+    - nvim
+
+- name: run PlugInstall
+  command: nvim --headless +PlugInstall +qall
+  tags:
+    - nvim
+    - plug

@@ -1,0 +1,8 @@
+- name: install haskell development tools
+  become: yes
+  apt:
+    name:
+      - haskell-platform
+  tags:
+    - languages
+    - haskell

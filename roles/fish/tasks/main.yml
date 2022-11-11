@@ -1,0 +1,23 @@
+- import_tasks: config.yml
+
+- name: make sure fish is installed
+  package:
+    name: fish
+    state: present
+  become: yes
+  tags:
+    - fish
+
+- name: set fish as default shell
+  user:
+    name: "{{ ansible_env.USER }}"
+    shell: /usr/bin/fish
+  become: yes
+  tags:
+    - fish
+
+- name: install oh-my-fish
+  shell: curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+  when: not "$(command -v omf)"
+  tags:
+    - fish

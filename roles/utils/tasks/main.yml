@@ -1,0 +1,30 @@
+- name: install utils
+  become: yes
+  apt:
+    name:
+      - feh
+      - flameshot
+      - bat
+      - ncdu
+  tags:
+    - apt
+
+- name: install exa
+  shell: cargo install exa
+  tags:
+    - exa
+
+- name: install fd-find
+  shell: cargo install fd-find
+  tags:
+    - cargo
+
+- name: install ripgrep
+  shell: cargo install ripgrep
+  tags:
+    - cargo
+
+- name: install procs
+  shell: cargo install procs
+  tags:
+    - cargo

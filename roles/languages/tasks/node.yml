@@ -1,0 +1,9 @@
+- name: install nodejs development tools
+  become: yes
+  apt:
+    name:
+      - nodejs
+      - npm
+  tags:
+    - languages
+    - nodejs

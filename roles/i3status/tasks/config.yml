@@ -1,0 +1,18 @@
+- name: create i3status config directory
+  file:
+    path: ~/.config/i3status-rust
+    state: directory
+  tags:
+    - i3status
+
+- name: symlink dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/i3status/files/{{ item }}"
+    path: ~/.config/i3status-rust/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - config.toml
+  tags:
+    - i3status

@@ -1,0 +1,8 @@
+- name: install go development tools
+  become: yes
+  apt:
+    name:
+      - golang
+  tags:
+    - languages
+    - go

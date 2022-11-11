@@ -1,0 +1,41 @@
+- name: install alacritty dependencies
+  become: yes
+  apt:
+    name:
+      - cmake
+      - pkg-config
+      - libfreetype6-dev
+      - libfontconfig1-dev
+      - libxcb-xfixes0-dev
+      - libxkbcommon-dev
+      - python3
+  tags:
+    - apt
+    - alacritty
+
+- name: install alacritty
+  shell: cargo install alacritty
+  tags:
+    - alacritty
+    - rust
+
+- name: create alacritty config directory
+  file:
+    path: ~/.config/alacritty
+    state: directory
+  tags:
+    - alacritty
+
+- name: symlink files
+  file:
+    src: "{{ ansible_env.PWD }}/roles/alacritty/files/{{ item }}"
+    path: "~/.config/alacritty/{{ item }}"
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - alacritty.yml
+    - colors.yml
+    - fonts.yml
+  tags:
+    - alacritty

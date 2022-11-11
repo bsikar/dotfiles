@@ -1,0 +1,27 @@
+- name: delete nvim config directory
+  file:
+    path: ~/.config/nvim
+    state: absent
+  tags:
+    - nvim
+    - config
+
+- name: create nvim config directory
+  file:
+    path: ~/.config/nvim
+    state: directory
+  tags:
+    - nvim
+
+- name: symlink dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/nvim/files/{{ item }}"
+    path: ~/.config/nvim/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - pack
+    - init.vim
+  tags:
+    - nvim

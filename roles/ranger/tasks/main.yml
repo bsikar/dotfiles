@@ -1,0 +1,16 @@
+- import_tasks: config.yml
+
+- name: Install ranger
+  become: yes
+  apt:
+    names:
+      - ranger
+      - python3-pip
+      - libx11-dev
+      - libxext-dev
+
+- name: install ueberzug
+  become: yes
+  pip:
+    name: ueberzug
+    executable: pip3

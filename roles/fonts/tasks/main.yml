@@ -1,0 +1,26 @@
+- name: install jetbrains mono font
+  become: yes
+  apt:
+    name:
+      - fonts-jetbrains-mono
+  tags:
+    - fonts
+    - jetbrains mono
+
+- name: install fira code font
+  become: yes
+  apt:
+    name:
+      - fonts-firacode
+  tags:
+    - fonts
+    - fira code
+
+- name: install powerline fonts
+  become: yes
+  apt:
+    name:
+      - fonts-powerline
+  tags:
+    - fonts
+    - powerline

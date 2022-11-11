@@ -1,0 +1,83 @@
+- name: install rust
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  tags:
+    - languages
+    - rust
+
+- name: install rustfmt and clippy
+  shell: rustup component add rustfmt clippy
+  tags:
+    - languages
+    - rust
+
+- name: install rust language server
+  shell: rustup component add rls rust-analysis rust-src
+  tags:
+    - languages
+    - rust
+
+- name: install rust nightly
+  shell: rustup toolchain add nightly
+  tags:
+    - languages
+    - rust
+
+- name: install msvc toolchain
+  shell: rustup toolchain install stable-x86_64-pc-windows-msvc
+  tags:
+    - languages
+    - rust
+
+- name: install wasm toolchain
+  shell: rustup target add wasm32-unknown-unknown
+  tags:
+    - languages
+    - rust
+
+- name: install cargo-edit
+  shell: cargo install cargo-edit
+  tags:
+    - languages
+    - rust
+
+- name: install wasm-pack
+  shell: cargo install wasm-pack
+  tags:
+    - languages
+    - rust
+
+- name: install cargo-bloat
+  shell: cargo install cargo-bloat
+  tags:
+    - languages
+    - rust
+
+- name: install cargo-outdated
+  shell: cargo install cargo-outdated
+  tags:
+    - languages
+    - rust
+
+- name: install cargo-tree
+  shell: cargo install cargo-tree
+  tags:
+    - languages
+    - rust
+
+- name: install cargo-expand
+  shell: cargo install cargo-expand
+  tags:
+    - languages
+    - rust
+
+- name: install cargo-make
+  shell: cargo install cargo-make
+  tags:
+    - languages
+    - rust
+
+- name: install cargo-watch
+  shell: cargo install cargo-watch
+  tags:
+    - languages
+    - rust

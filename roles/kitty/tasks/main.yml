@@ -1,0 +1,9 @@
+- import_tasks: config.yml
+
+- name: install kitty
+  become: yes
+  apt:
+    name: kitty
+  tags:
+    - apt
+    - kitty

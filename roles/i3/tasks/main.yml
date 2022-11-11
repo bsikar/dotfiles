@@ -1,0 +1,17 @@
+- import_tasks: config.yml
+
+- name: install dmenu
+  become: yes
+  apt:
+    name: suckless-tools
+  tags:
+    - apt
+    - dmenu
+
+- name: install i3
+  become: yes
+  apt:
+    name: i3
+  tags:
+    - apt
+    - i3
