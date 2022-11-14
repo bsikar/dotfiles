@@ -31,5 +31,5 @@
 
 - name: install onefetch
   shell: cargo install onefetch
-  tage:
+  tags:
     - cargo
