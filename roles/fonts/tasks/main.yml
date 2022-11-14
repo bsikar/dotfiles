@@ -24,3 +24,11 @@
   tags:
     - fonts
     - powerline
+
+- name: install monocraft
+  shell: |
+    curl -L -O https://github.com/IdreesInc/Monocraft/releases/download/v1.1/Monocraft.otf
+    mkdir ~/.local/share/fonts
+    mv Monocraft.otf ~/.local/share/fonts
+    fc-cache -f -v
+

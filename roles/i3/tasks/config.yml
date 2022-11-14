@@ -13,6 +13,6 @@
     follow: false
     force: yes
   loop:
-    - config.toml
+    - config
   tags:
     - i3

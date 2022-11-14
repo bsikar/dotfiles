@@ -1,3 +1,10 @@
+- name: create spiceitfy directory
+  file:
+    path: ~/.config/spicetify
+    state: directory
+  tags:
+    - spiceitfy
+
 - name: symlink dotfiles
   file:
     src: "{{ ansible_env.PWD }}/roles/spicetify/files/{{ item }}"

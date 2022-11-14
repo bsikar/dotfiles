@@ -1,3 +1,10 @@
+- name: create wallpaper directory
+  file:
+    path: ~/.config/wallpapers
+    state: directory
+  tags:
+    - wallpapers
+
 - name: symlink dotfiles
   file:
     src: "{{ ansible_env.PWD }}/roles/wallpapers/files/{{ item }}"
