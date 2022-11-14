@@ -28,3 +28,8 @@
   shell: cargo install procs
   tags:
     - cargo
+
+- name: install onefetch
+  shell: cargo install onefetch
+  tage:
+    - cargo
