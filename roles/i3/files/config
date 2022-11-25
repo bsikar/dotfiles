@@ -11,13 +11,13 @@
 
 
 # background / wallpaper
-exec feh --bg-scale ~/.config/wallpapers/solid-background.png
+exec feh --bg-scale ~/.config/wallpapers/Garden\ of\ Words.jpg
 
 # colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #28181a #28181a #28181a #28181a #28181a
-client.focused_inactive #1B1011 #1B1011 #1B1011 #1B1011 #1B1011
-client.unfocused        #1B1011 #1B1011 #1B1011 #1B1011 #1B1011
+client.focused          #152505 #152505 #152505 #152505 #152505
+client.focused_inactive #0d1803 #0d1803 #0d1803 #0d1803 #0d1803
+client.unfocused        #0d1803 #0d1803 #0d1803 #0d1803 #0d1803
 client.urgent           #a05758 #a05758 #a05758 #a05758   #a05758
 client.placeholder      #ffffff #ffffff #ffffff #ffffff   #ffffff
 
@@ -74,7 +74,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#1B1011' -sf '#817D7F' -sb '#28181A' -nf '#5B5859' -fn 'JetBrainsMono Nerd Font 10'
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#0D1803' -sf '#817D7F' -sb '#1B512D' -nf '#5B5859' -fn 'JetBrainsMono Nerd Font 10'
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -210,15 +210,15 @@ bar {
     position bottom
     status_command i3status-rs ~/.config/i3status-rust/config.toml
     colors {
-        background #1b1011
-        statusline #ffffff
-        separator #666666
+        background #0D1803
+        statusline #0D1803
+        separator #0D1803
 
-        focused_workspace  #1B1011 #1B1011 #d0a8a8
-        active_workspace   #28181A #28181A #848082
-        inactive_workspace #28181A #28181A #848082
+        focused_workspace  #152505 #152505 #817D7F
+        active_workspace   #152505 #152505 #817D7F
+        inactive_workspace #0D1803 #0D1803 #817D7F
 
-        urgent_workspace   #3d2528 #a05758 #c39da2
-        binding_mode       #3d2528 #a05758 #c39da2
+        urgent_workspace   #5B9279 #5B9279 #ffffff
+        binding_mode       #5B9279 #5B9279 #ffffff
     }
 }
