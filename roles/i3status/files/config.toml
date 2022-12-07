@@ -4,7 +4,7 @@ name = "awesome"
 [theme.overrides]
 idle_bg = "#1B512D"
 idle_fg = "#fffffff"
-info_bg = "#7B7778"
+info_bg = "#1B512D"
 info_fg = "#fafafa"
 good_bg = "#1C7C54"
 good_fg = "#fffffff"
@@ -75,3 +75,8 @@ interval = "once"
 block = "custom"
 command = "cat /etc/hostname"
 interval = "once"
+
+[[block]]
+block = "custom"
+command = "mullvad status | awk -F ' ' '{print $1}'"
+interval = 5
