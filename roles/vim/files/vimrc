@@ -6,7 +6,8 @@ Plug 'gruvbox-community/gruvbox'                            " colorscheme
 Plug 'altercation/vim-colors-solarized'                     " colorscheme
 Plug 'mhinz/vim-startify'                                   " splash screen
 Plug 'bsikar/vim-monochrome'                                " another color scheme
-Plug 'sbdchd/neoformat'
+Plug 'sbdchd/neoformat'                                     " code format
+Plug 'tabnine/YouCompleteMe'                                " tab 9
 call plug#end()                                             " end plug stuff
 
 colorscheme monochrome
