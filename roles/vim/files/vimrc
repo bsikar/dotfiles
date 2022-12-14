@@ -46,6 +46,32 @@ let g:neoformat_ocaml_ocamlformat = {
             \ 'args': ['--enable-outside-detected-project', '--name', '"%:p"', '-']
             \ }
 let g:neoformat_enabled_ocaml = ['ocamlformat']
+
+let g:neoformat_python_black = {
+            \ 'exe': 'black',
+            \ 'args': ['--target-version', 'py310'],
+            \ 'replace': 1,
+            \ }
+let g:neoformat_python_isort = {
+            \ 'exe': 'python3',
+            \ 'args': ['-m', 'isort', '--profile black'],
+            \ 'replace': 1,
+            \ }
+let g:neoformat_python_docformatter = {
+            \ 'exe': 'docformatter',
+            \ 'args': ['-i'],
+            \ 'replace': 1,
+            \ }
+let g:neoformat_python_pyment = {
+            \ 'exe': 'pyment',
+            \ 'args': ['-w'] ,
+            \ 'replace': 1,
+            \ }
+
+let g:neoformat_enabled_python = ['black', 'isort', 'docformatter']
+let g:neoformat_run_all_formatters = 1
+
+
 " run :Neoformat to format the file on save
 augroup fmt
   autocmd!
