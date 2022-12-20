@@ -74,7 +74,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#0D1803' -sf '#817D7F' -sb '#1B512D' -nf '#5B5859' -fn 'JetBrainsMono Nerd Font 10'
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#0D1803' -sf '#817D7F' -sb '#1B512D' -nf '#5B5859' -fn 'JetBrainsMono 23'
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -206,7 +206,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 bar {
-    font pango:JetBrainsMono 10
+    font pango:JetBrainsMono 23
     position bottom
     status_command i3status-rs ~/.config/i3status-rust/config.toml
     colors {
