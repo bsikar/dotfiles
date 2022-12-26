@@ -11,4 +11,3 @@ export PATH="$PATH:~/.local/bin"
 
 # run the playbook
 ansible-playbook --ask-become-pass -i hosts bootstrap.yml
-

@@ -17,7 +17,7 @@
     - fish
 
 - name: install oh-my-fish
-  shell: curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-  when: not "$(command -v omf)"
+  shell: |
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish -c 'source - --noninteractive --yes' && exit
   tags:
     - fish

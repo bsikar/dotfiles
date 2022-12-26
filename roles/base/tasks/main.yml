@@ -22,8 +22,10 @@
       - curl
       - git
       - nala
+      - dbus-x11
   tags:
     - packages
     - curl
     - git
     - nala
+    - dbus-x11

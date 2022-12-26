@@ -4,6 +4,12 @@
     - languages
     - rust
 
+- name: source cargo env vars
+  shell: . $HOME/.cargo/env
+  tags:
+    - languages
+    - rust
+
 - name: install rustfmt and clippy
   shell: rustup component add rustfmt clippy
   tags:

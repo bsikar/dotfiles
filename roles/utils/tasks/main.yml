@@ -6,6 +6,11 @@
       - flameshot
       - bat
       - ncdu
+      - xclip
+      - docker.io
+      - docker-compose
+      - tree
+      - alsa-utils
   tags:
     - apt
 
