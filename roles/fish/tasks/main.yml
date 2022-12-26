@@ -1,5 +1,3 @@
-- import_tasks: config.yml
-
 - name: make sure fish is installed
   package:
     name: fish
@@ -21,3 +19,7 @@
     curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish -c 'source - --noninteractive --yes' && exit
   tags:
     - fish
+
+# link after
+- import_tasks: config.yml
+

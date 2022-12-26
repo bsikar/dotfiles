@@ -14,7 +14,6 @@
     force: yes
   loop:
     - config.fish
-    - fish_variables
     - functions
     - conf.d
   tags:
