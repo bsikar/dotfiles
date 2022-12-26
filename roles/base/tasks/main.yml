@@ -23,9 +23,11 @@
       - git
       - nala
       - dbus-x11
+      - zfsutils-linux
   tags:
     - packages
     - curl
     - git
     - nala
-    - dbus-x11
+    - dbus
+    - zfs
