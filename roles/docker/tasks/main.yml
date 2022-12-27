@@ -14,9 +14,3 @@
   command:  "gpasswd -a {{ ansible_env.USER }} docker"
   tags:
     - docker
-
-- name: reload docker group
-  become: yes
-  command: newgrp docker
-  tags:
-    - docker

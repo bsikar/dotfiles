@@ -23,9 +23,3 @@
   command: "gpasswd -a {{ ansible_env.USER }} video"
   tags:
     - brightnessctl
-
-- name: reload the video group
-  become: yes
-  command: newgrp video
-  tags:
-    - brightnessctl
