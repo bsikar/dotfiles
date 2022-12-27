@@ -8,12 +8,6 @@
     - apt
     - docker
 
-- name: create docker group
-  become: yes
-  shell: groupadd docker
-  tags:
-    - docker
-
 - name: add user to docker group
   become: yes
   shell: "usermod -aG docker {{ ansible_env.USER }}"

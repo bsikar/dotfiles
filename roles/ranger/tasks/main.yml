@@ -1,14 +1,19 @@
-- name: Install ranger
-  become: yes
-  apt:
-    names:
-      - ranger
-      - python3-pip
-      - libx11-dev
-      - libxext-dev
+# TODO FIXME
+# this is broken
+ 
+#- name: Install ranger
+#  become: yes
+#  apt:
+#    names:
+#      - ranger
+#      - python3-pip
+#      - libx11-dev
+#      - libxext-dev
+#
+#- name: install ueberzug
+#  become: yes
+#  pip:
+#    name: ueberzug
+#    executable: pip3
+#
 
-- name: install ueberzug
-  become: yes
-  pip:
-    name: ueberzug
-    executable: pip3
