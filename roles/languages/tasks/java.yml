@@ -1,8 +1,0 @@
-- name: install java development tools
-  become: yes
-  apt:
-    name: java-common
-  tags:
-    - apt
-    - languages
-    - java

@@ -1,17 +1,18 @@
-- import_tasks: config.yml
-
-- name: install dmenu
-  become: yes
-  apt:
-    name: suckless-tools
+- name: create i3 config directory
+  file:
+    path: ~/.config/i3
+    state: directory
   tags:
-    - apt
-    - dmenu
+    - i3
 
-- name: install i3
-  become: yes
-  apt:
-    name: i3
+- name: symlink dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/i3/files/{{ item }}"
+    path: ~/.config/i3/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - config
   tags:
-    - apt
     - i3

@@ -1,20 +1,17 @@
 - name: Setup local environment
   hosts: localhost
   roles:
-    - base
-    - fonts
-    - fish
-    - locale
-    - languages
     - alacritty
-    - kitty
     - dunst
+    - fish
     - i3
     - i3status
-    - vim
+    - kitty
     - nvim
+    - picom
+    - ranger
+    - spicetify
+    - vim
     - wallpapers
     - xinit
-    - brightnessctl
-    - spicetify
-    - utils
+

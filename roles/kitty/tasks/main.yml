@@ -1,9 +1,18 @@
-- import_tasks: config.yml
-
-- name: install kitty
-  become: yes
-  apt:
-    name: kitty
+- name: create kitty config directory
+  file:
+    path: ~/.config/kitty
+    state: directory
   tags:
-    - apt
+    - kitty
+
+- name: symlink dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/kitty/files/{{ item }}"
+    path: ~/.config/kitty/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - kitty.conf
+  tags:
     - kitty

@@ -1,9 +1,11 @@
-- import_tasks: config.yml
-
-- name: install picom
-  become: yes
-  apt:
-    name: picom
+- name: symlink dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/picom/files/{{ item }}"
+    path: ~/.config/picom/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - picom.conf
   tags:
-    - apt
     - picom

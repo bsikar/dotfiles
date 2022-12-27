@@ -1,11 +1,3 @@
-- name: install dunst
-  become: yes
-  package:
-    name: dunst
-    state: present
-  tags:
-    - dunst
-
 - name: create dunst config directory
   file:
     path: ~/.config/dunst

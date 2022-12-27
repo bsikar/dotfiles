@@ -1,11 +1,3 @@
-- name: Install xinit
-  become: yes
-  apt:
-    name: xinit
-  tags:
-    - apt
-    - xinit
-
 - name: create xinitrc
   file:
     src: "{{ ansible_env.PWD }}/roles/xinitrc/files/xinitrc"

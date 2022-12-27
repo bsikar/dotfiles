@@ -1,36 +1,18 @@
-- import_tasks: config.yml
-
-- name: install i3status-rust dependencies
-  become: yes
-  apt:
-    name:
-      - librust-libdbus-sys-dev
-      - libssl-dev
-      - librust-libsensors-sys-dev
-  tags:
-    - apt
-    - i3status
-
-- name: install i3status-rust
-  shell: cargo install i3status-rs
-
-- name: download i3status-rust repo
-  git:
-    repo: https://github.com/greshake/i3status-rust
-    dest: "{{ ansible_env.PWD }}/roles/i3status/files/i3status-rust"
-    force: yes
-  tags:
-    - i3status
-    - git
-
-- name: execute i3status-rust build script
-  shell: "cd {{ ansible_env.PWD }}/roles/i3status/files/i3status-rust && sh -c {{ ansible_env.PWD }}/roles/i3status/files/i3status-rust/install.sh"
-  tags:
-    - i3status
-
-- name: delete i3status-rust repo
+- name: create i3status config directory
   file:
-    path: "{{ ansible_env.PWD }}/roles/i3status/files/i3status-rust"
-    state: absent
+    path: ~/.config/i3status-rust
+    state: directory
+  tags:
+    - i3status
+
+- name: symlink dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/i3status/files/{{ item }}"
+    path: ~/.config/i3status-rust/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - config.toml
   tags:
     - i3status
