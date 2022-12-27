@@ -20,6 +20,3 @@
   tags:
     - fish
 
-# link after
-- import_tasks: config.yml
-

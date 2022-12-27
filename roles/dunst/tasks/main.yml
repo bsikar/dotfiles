@@ -5,19 +5,3 @@
     state: present
   tags:
     - dunst
-
-- name: create dunst config directory
-  file:
-    path: ~/.config/dunst
-    state: directory
-  tags:
-    - dunst
-
-- name: symlink dunstrc
-  file:
-    src: "{{ ansible_env.PWD }}/roles/dunst/files/dunstrc"
-    path: "~/.config/dunst/dunstrc"
-    state: link
-    force: yes
-  tags:
-    - dunst

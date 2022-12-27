@@ -7,10 +7,11 @@
       - bat
       - ncdu
       - xclip
-      - docker.io
-      - docker-compose
       - tree
       - alsa-utils
+      - thunar
+      - ranger
+      - neofetch
   tags:
     - apt
 

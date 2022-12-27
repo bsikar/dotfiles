@@ -1,0 +1,21 @@
+- name: install docker
+  become: yes
+  apt:
+    name:
+      - docker.io
+      - docker-compose
+  tags:
+    - apt
+    - docker
+
+- name: create docker group
+  become: yes
+  shell: groupadd docker
+  tags:
+    - docker
+
+- name: add user to docker group
+  become: yes
+  shell: usermod -aG docker {{ lookup('env', 'USER') }}
+  tags:
+    - docker

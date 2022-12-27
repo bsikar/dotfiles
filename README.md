@@ -1,5 +1,11 @@
 # Install
+### Install the bootstrap
 ```
+./install.bash
+```
+### Select theme
+```
+git checkout green
 ./install.bash
 ```
 

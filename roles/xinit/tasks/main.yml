@@ -5,13 +5,3 @@
   tags:
     - apt
     - xinit
-
-- name: create xinitrc
-  file:
-    src: "{{ ansible_env.PWD }}/roles/xinitrc/files/xinitrc"
-    path: ~/.xinitrc
-    state: link
-    follow: false
-    force: yes
-  tags:
-    - xinit
