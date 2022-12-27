@@ -1,3 +1,17 @@
+- name: delete ranger config directory
+  file:
+    path: ~/.config/ranger
+    state: absent
+  tags:
+    - ranger
+
+- name: create ranger config directory
+  file:
+    path: ~/.config/ranger
+    state: directory
+  tags:
+    - ranger
+
 - name: symlink dotfiles
   file:
     src: "{{ ansible_env.PWD }}/roles/ranger/files/{{ item }}"

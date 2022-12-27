@@ -1,3 +1,17 @@
+- name: delete picom config directory
+  file:
+    path: ~/.config/picom
+    state: absent
+  tags:
+    - picom
+
+- name: create picom config directory
+  file:
+    path: ~/.config/picom
+    state: directory
+  tags:
+    - picom
+
 - name: symlink dotfiles
   file:
     src: "{{ ansible_env.PWD }}/roles/picom/files/{{ item }}"
