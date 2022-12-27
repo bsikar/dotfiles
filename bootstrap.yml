@@ -14,7 +14,9 @@
     - vim
     - nvim
     - docker
+    - ranger
     - xinit
     - brightnessctl
+    - picom
     - spicetify
     - utils

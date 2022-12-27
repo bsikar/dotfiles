@@ -1,5 +1,3 @@
-- import_tasks: config.yml
-
 - name: install i3status-rust dependencies
   become: yes
   apt:

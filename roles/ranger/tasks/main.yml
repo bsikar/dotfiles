@@ -1,5 +1,3 @@
-- import_tasks: config.yml
-
 - name: Install ranger
   become: yes
   apt:

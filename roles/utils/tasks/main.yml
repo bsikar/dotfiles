@@ -10,7 +10,6 @@
       - tree
       - alsa-utils
       - thunar
-      - ranger
       - neofetch
   tags:
     - apt

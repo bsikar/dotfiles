@@ -19,6 +19,6 @@
 
 - name: add user to video grop
   become: yes
-  command: gpasswd -a $USER video
+  command: "gpasswd -a {{ ansible_env.USER }} video"
   tags:
     - brightnessctl

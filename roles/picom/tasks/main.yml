@@ -1,5 +1,3 @@
-- import_tasks: config.yml
-
 - name: install picom
   become: yes
   apt:
