@@ -10,6 +10,13 @@
 
 - name: add user to docker group
   become: yes
-  shell: "usermod -aG docker {{ ansible_env.USER }}"
+  # verify this works
+  command:  "gpasswd -a {{ ansible_env.USER }} docker"
+  tags:
+    - docker
+
+- name: reload docker group
+  become: yes
+  command: newgrp docker
   tags:
     - docker

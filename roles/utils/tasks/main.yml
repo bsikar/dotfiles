@@ -38,3 +38,6 @@
   shell: cargo install onefetch
   tags:
     - cargo
+
+# TODO
+# add vimv
