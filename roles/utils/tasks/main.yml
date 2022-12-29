@@ -11,6 +11,7 @@
       - alsa-utils
       - thunar
       - neofetch
+      - pavucontrol
   tags:
     - apt
 
@@ -39,5 +40,7 @@
   tags:
     - cargo
 
-# TODO
-# add vimv
+- name: install vimv
+  shell: |
+    curl https://raw.githubusercontent.com/thameera/vimv/master/vimv > /usr/bin/
+    chmod +755 /usr/bin/vimv
