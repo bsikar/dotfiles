@@ -29,7 +29,7 @@
   become: yes
   shell: |
     fc-list | grep Monocraft || curl -L -O https://github.com/IdreesInc/Monocraft/releases/download/v1.1/Monocraft.otf && \
-      mkdir -p {{ ansible_env.USER }}/.local/share/fonts && \
-      mv Monocraft.otf {{ ansible_env.USER }}/.local/share/fonts && \
+      mkdir -p /home/{{ ansible_env.USER }}/.local/share/fonts && \
+      mv Monocraft.otf /home/{{ ansible_env.USER }}/.local/share/fonts && \
       fc-cache -f -v
 
