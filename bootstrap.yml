@@ -3,7 +3,7 @@
   roles:
     - base
     - fonts
-    #- fish
+    - fish
     - locale
     - languages
     - alacritty
