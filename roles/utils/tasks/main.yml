@@ -35,12 +35,13 @@
   tags:
     - cargo
 
-- name: install onefetch
-  shell: cargo install onefetch
-  tags:
-    - cargo
+      #- name: install onefetch
+      #  shell: cargo install onefetch
+      #  tags:
+      #    - cargo
 
 - name: install vimv
+  become: yes
   shell: |
-    curl https://raw.githubusercontent.com/thameera/vimv/master/vimv > /usr/bin/
+    curl https://raw.githubusercontent.com/thameera/vimv/master/vimv > /usr/bin/vimv
     chmod +755 /usr/bin/vimv
