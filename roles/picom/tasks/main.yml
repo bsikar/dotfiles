@@ -1,7 +1,0 @@
-- name: install picom
-  become: yes
-  apt:
-    name: picom
-  tags:
-    - apt
-    - picom

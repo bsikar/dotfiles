@@ -1,7 +1,0 @@
-- name: Install xinit
-  become: yes
-  apt:
-    name: xinit
-  tags:
-    - apt
-    - xinit

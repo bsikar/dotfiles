@@ -1,7 +1,0 @@
-- name: install dunst
-  become: yes
-  package:
-    name: dunst
-    state: present
-  tags:
-    - dunst

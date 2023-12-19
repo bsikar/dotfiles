@@ -1,7 +1,0 @@
-- name: install nvim
-  become: yes
-  apt:
-    name: neovim
-  tags:
-    - apt
-    - nvim
