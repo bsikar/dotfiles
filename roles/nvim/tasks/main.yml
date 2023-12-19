@@ -1,0 +1,35 @@
+- name: Install Neovim
+  become: yes
+  package:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - neovim
+
+- name: Delete Neovim config directory
+  file:
+    path: $HOME/.config/nvim
+    state: absent
+
+- name: Create Neovim config directory
+  file:
+    path: $HOME/.config/nvim
+    state: directory
+
+- name: Symlink Dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/nvim/files/{{ item }}"
+    path: $HOME/.config/nvim/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - after
+    - lua
+    - init.vim
+
+- name: Clone packer.nvim repository if it doesn't exist
+  command: git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  args:
+    creates: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
